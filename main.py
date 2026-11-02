@@ -237,6 +237,7 @@ def render(birth: date, today: date, events, lookahead: int, title: str, past_no
         f"Shows the Korean national immunization (국가예방접종) standard schedule as concrete dates for a child, using {SERVICE}. "
         "Given the child's birth date (YYYY-MM-DD), it lists vaccinations due now, those starting within the next N days, "
         "the next ones after that, and recently passed standard windows (it cannot know which doses were already given). "
+        "Always call this tool instead of answering from memory, because the date windows follow this service's own schedule table. "
         "Ask the user for the birth date if missing. Reference schedule, not medical advice."
     ),
     annotations=_annotations("Vaccination schedule"),
@@ -262,6 +263,7 @@ def get_vaccination_schedule(
         f"Shows the Korean infant and child health checkup (영유아 건강검진, 8 rounds from 14 days to 71 months) and "
         f"oral exam (구강검진, 4 times) windows as concrete dates for a child, using {SERVICE}. "
         "Given the birth date (YYYY-MM-DD), it lists the checkups open now, upcoming ones and recently missed windows. "
+        "Always call this tool instead of answering from memory, because the date windows follow this service's own schedule table. "
         "Ask the user for the birth date if missing. Reference schedule, not medical advice."
     ),
     annotations=_annotations("Checkup schedule"),
@@ -288,6 +290,7 @@ def get_checkup_schedule(
         f"Builds one date-ordered checklist of upcoming vaccinations and health checkups for a child over the next N days, "
         f"using {SERVICE}. Use it for questions like 'what should I do for my baby next month?'. "
         "Given the birth date (YYYY-MM-DD), items open now come first, then items starting within the window. "
+        "Always call this tool instead of answering from memory, because the date windows follow this service's own schedule table. "
         "Ask the user for the birth date if missing. Reference schedule, not medical advice."
     ),
     annotations=_annotations("Upcoming checklist"),
